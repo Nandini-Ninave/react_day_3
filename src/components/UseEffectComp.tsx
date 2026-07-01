@@ -3,11 +3,11 @@ import { useEffect, useState } from "react"
 function UseEffectComp(){
     const[count, setCount] = useState(0)
     useEffect(()=>{
-        setTimeout(() => {
-            setCount(count=>count+1)
-        }, 1000);
-    },[])
+        console.log("useEffect")
+    },[count])
     return(<div>
+        {/* {count} */}
+        <button onClick={()=>setCount((c)=>c+1)}></button>
         {count}
     </div>)
 }
