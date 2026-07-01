@@ -1,8 +1,10 @@
 import Formcomp from "./components/Formcomp"
+import UseEffectComp from "./components/UseEffectComp"
 function App(){
   return(
     <div>
-      <Formcomp/>
+      {/* <Formcomp/> */}
+      <UseEffectComp/>
     </div>
   )
 }
