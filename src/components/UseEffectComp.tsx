@@ -1,15 +1,69 @@
 // import { useEffect, useState } from "react"
 
 import { useEffect, useState } from "react";
+import Loadingcomp from "./Loadingcomp";
+interface products{
+    id:number,
+    title:string,
+    price:number,
+    description:string,
+    category:string,
+    image:string,
+    rating:{
+        rate:number,
+        count:number
+    }
+}
+function UseEffectComp(){
+    const[data, setData] = useState<products[]>([])
+    useEffect(()=>{
+            fetch("https://fakestoreapi.com/products").then(res=>res.json()).then(result=>setData(result))
+    },[])
+    return(
+        <div>
+            <>{data.map((item)=>{
+                return(<p>{item.title}</p>)
+            })}</>
+        </div>  
+    )
+    
+}
+export default UseEffectComp
+
+
+//claenup function 
+
+// function App(){
+//     const [count, setCount] = useState(0)
+//     useEffect(()=>{
+//         const time = setTimeout(()=>{
+//             setCount(prev=>prev+1)
+//         },1000)
+//         console.log("--", time)
+//         //cleanu function
+//         return ()=>{
+//             clearTimeout(time)
+//             console.log("clean up")
+//         }
+//     },[])
+//     return(
+//         <div>
+//             <p>{count}</p>
+//             <button onClick={()=>setCount(prev=>prev+1)}></button>
+//         </div>
+//     )
+// }
+// export default App
+
+
+
+// Fetchind data using async await
+
 
 // function UseEffectComp(){
-//     const[data, setData] = useState([])
+//     const[data, setData] = useState<products[]>([])
 //     useEffect(()=>{
-//         // fetch('https://fakestoreapi.com/products').then((res)=>{setData(res.json)})
-//         // console.log(data)
-
-
-//         async function fetchData() {
+//          async function fetchData() {
 //             try{
 //                 const res = await fetch('https://fakestoreapi.com/products')
 //                 const result = await res.json()
@@ -22,34 +76,11 @@ import { useEffect, useState } from "react";
 //         }
 //     fetchData()
 //     },[])
-//     return(<div>
-//         {data.map((element:any)=>{
+//      return(<div>
+//         {/* <Loadingcomp></Loadingcomp> */}
+//         {data.map((element)=>{
 //             return(<p>{element.title}</p>)
 //         })}
-//         {/* <p>{data.id}</p> */}
 //     </div>)
 // }
 // export default UseEffectComp
-
-
-function App(){
-    const [count, setCount] = useState(0)
-    useEffect(()=>{
-        const time = setTimeout(()=>{
-            setCount(prev=>prev+1)
-        },1000)
-        console.log("--", time)
-        //cleanu function
-        return ()=>{
-            clearTimeout(time)
-            console.log("clean up")
-        }
-    },[])
-    return(
-        <div>
-            <p>{count}</p>
-            <button onClick={()=>setCount(prev=>prev+1)}></button>
-        </div>
-    )
-}
-export default App
