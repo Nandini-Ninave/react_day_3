@@ -7,6 +7,7 @@ import Person from "./components/Person";
 import UseEffectComp from "./components/UseEffectComp";
 import Protectedroute from "./components/Protectedroute";
 import Navlink from "./components/Navlink";
+import LazyLoading from "./components/LazyLoading";
 
 export const routes: RouteObject[] = [
     {
@@ -39,6 +40,10 @@ export const routes: RouteObject[] = [
     {
         path:"/person/:firstName", 
         element: <Person/>
+    },
+    {
+        path:"/lazyloading",
+        element:<LazyLoading/>
     },
     {
         path: "/products",

@@ -6,6 +6,7 @@ function Navlink(){
             <NavLink to="/home">Home</NavLink>
             <NavLink to="/about">about</NavLink> 
             <NavLink to="/person/pari">person</NavLink>
+            <NavLink to="/lazyloading">lazy loading</NavLink>
             <NavLink to="/products">Products</NavLink>
         </div>
     )
