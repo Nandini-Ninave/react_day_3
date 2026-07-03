@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react"
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Loadingcomp from "./Loadingcomp";
 interface products{
     id:number,
@@ -16,14 +16,24 @@ interface products{
 }
 function UseEffectComp(){
     const[data, setData] = useState<products[]>([])
+    const mincount = 300
     useEffect(()=>{
             fetch("https://fakestoreapi.com/products").then(res=>res.json()).then(result=>setData(result))
     },[])
+
+    const filteredProducts = useMemo(()=>{
+        return data.filter(product=>product.rating.count>mincount)
+    }, [data, mincount])
+
     return(
         <div>
+            <>{filteredProducts.map((item)=>{
+                return(<p>{item.title} - {item.rating?.count}</p>)
+            })}</>
+{/*             
             <>{data.map((item)=>{
                 return(<p>{item.title}</p>)
-            })}</>
+            })}</> */}
         </div>  
     )
     
