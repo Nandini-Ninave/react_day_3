@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react"
-// import Childcomp f   rom "./Childcomp"
 
 function Usecallback(){
     const[count, setCount] = useState<number>(0)
@@ -13,12 +12,12 @@ function Usecallback(){
         setCount(count+1)
         // num++
     },[count])
-    console.log(typeof inc)
+    // console.log(inc)
     return(<div>
         <p>{count}</p>
-        <p>{num}</p> 
+        <p>{num}</p>
         {/* <button onClick={inc}>click</button> */}
-        <Childcomp  inc = {inc}/>
+        <Childcomp inc = {inc}/>
     </div>
 
     )
@@ -30,3 +29,6 @@ export default Usecallback
 //     return(<button onClick={inc}>inc</button>)
 // }
 
+// function Childcomp = React.memo({inc}:{inc:()=>void})=>{
+//     return(<button onClick={inc}>inc</button>)
+// }

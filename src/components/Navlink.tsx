@@ -8,7 +8,6 @@ function Navlink(){
             <NavLink to="/person/pari">person</NavLink>
             <NavLink to="/lazyloading">lazy loading</NavLink>
             <NavLink to="/products">Products</NavLink>
-            <NavLink to="/usecallback">use CallBack</NavLink>
         </div>
     )
 }
