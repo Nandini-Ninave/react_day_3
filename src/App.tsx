@@ -1,19 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-// import IncDec from "./components/IncDec"
 import { routes } from "./Routes"
-import IncDec from "./components/IncDec"
-import UseRef from "./components/UseRef"
-import Usecallback from "./components/Usecallback"
-import LazyLoading from "./components/LazyLoading"
-// import Navlink from "./components/Navlink"
+// import Context, { UserContext } from "./components/day6/Context"
+import Toggle from "./components/day6/Toggle"
+import Context from "./components/day6/Context"
 function App(){
   const router = createBrowserRouter(routes)
   return(
-    // <div><UseRef/>
-    // <Usecallback/>
-    // <div><LazyLoading/>
+    <div>
+      <Context/>
+      <Toggle/>
      <RouterProvider router={router}></RouterProvider>
-    // </div>
+    </div>
     )
 }
 export default App
