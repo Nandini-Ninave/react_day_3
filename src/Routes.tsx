@@ -8,6 +8,7 @@ import UseEffectComp from "./components/UseEffectComp";
 import Protectedroute from "./components/Protectedroute";
 import Navlink from "./components/Navlink";
 import LazyLoading from "./components/LazyLoading";
+import Usecallback from "./components/Usecallback";
 
 export const routes: RouteObject[] = [
     {
@@ -48,5 +49,9 @@ export const routes: RouteObject[] = [
     {
         path: "/products",
         element:<UseEffectComp/>
-    }
+    },
+    // {
+    //     path: "/usecallback",
+    //     element:<Usecallback/>
+    // }
 ]
