@@ -17,20 +17,3 @@ const AuthProvider = () => {
 
 export default AuthProvider 
  
-
-// type Theme = "light"|"dark"
-// interface themecontext{
-//     theme:Theme,
-//     toggletheme:()=>void
-// }
-// export const UserContext = createContext<themecontext|null>(null)
-// const Context=()=>{
-//     const [theme,setTheme] = useState<Theme>("light")
-//     function toggletheme(){
-//         setTheme((prev)=>(prev==="light"?"dark":"light"))
-//     }
-//     return(<UserContext value={{theme,toggletheme}}>
-//         <Toggle/>
-//     </UserContext>)
-// }
-// export default Context

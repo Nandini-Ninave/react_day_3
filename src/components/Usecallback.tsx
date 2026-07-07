@@ -17,7 +17,7 @@ function Usecallback(){
         <p>{count}</p>
         <p>{num}</p>
         {/* <button onClick={inc}>click</button> */}
-        <Childcomp inc = {inc}/>
+        {/* <Childcomp inc = {inc}/> */}
     </div>
 
     )
