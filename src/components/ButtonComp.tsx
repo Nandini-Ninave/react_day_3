@@ -1,4 +1,3 @@
-import { string } from "yup"
 
 type ButtonComp = {
     backgroundColor?:string,
