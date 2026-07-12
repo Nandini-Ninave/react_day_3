@@ -51,7 +51,7 @@ function UseEffectComp(){
               sx={{
                 height:"10%",
                 width:"40%",
-                marginTop:"20px",
+                marginTop:"30px",
                 border:"1px solid black",
                 display:"flex",
                 flexDirection:"column",
