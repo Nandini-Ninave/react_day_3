@@ -1,4 +1,3 @@
-
 type ButtonComp = {
     backgroundColor?:string,
     label?:string,

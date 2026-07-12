@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import Loadingcomp from "./Loadingcomp";
 import useApi from "./useApi";
 import "./useEffect.css"
+import { useAppDispatch } from "./day7/hook";
+import { addtocart } from "./day7/addtocartSlice";
 interface products{
     id:number,
     title:string,
@@ -19,23 +21,18 @@ interface products{
 function UseEffectComp(){
     const {data} = useApi("https://fakestoreapi.com/products")
     const [option, setOption] = useState<string>("")
+    const arr = useState([])
+    const dispatch = useAppDispatch()
     const mincount = 300
-    //sorted products
+    //sorted products 
     const sortedProducts = useMemo(()=>{
         if(option=="sorted"){
             return data.sort((a,b)=>a.price-b.price)
         }
         else if(option=="filtered"){
             return data.filter(product=>product.rating.count>mincount)
-        }
-    },[data, data.price, option])
-
-    //filterred products based on rating
-    
-    // const filteredProducts = useMemo(()=>{
-    //     return data.filter(product=>product.rating.count>mincount)
-    // }, [data, mincount])
-
+        } 
+    },[data, data.price, option]) 
     return(
         <div>
 
@@ -44,31 +41,25 @@ function UseEffectComp(){
                 <option  value={"filtered"}>filtered</option>
             </select>
 
-            {/* <>{sortedProducts.map((item)=>{
-                return(<p>{item.title} - {item.rating?.count}--{item.price}</p>)
-            })}</> */}
+
+            
+
             {option=="filtered"?<>{sortedProducts.map((item)=>{
                 return(<p>{item.title} - {item.rating?.count}--{item.price}</p>)
             })}</> : 
-             <>{data.map((item:any)=>{
-                return(<div className="card">
-                        <p>Id: {item.id}</p>
+             <>{data.map((item:any,index)=>{
+                return(<div className="card"key={index}>
+                        <p >Id: {item.id}</p>
                         <p>Title: {item.title}</p>
                         <p>Price: {item.price}</p>
                         <p>Description: {item.description}</p>
                         <p>Category: {item.category}</p>
                         <p>Rate: {item.rating?.rate}</p>
                         <p>Count: {item.rating?.count}</p>
+                        <button onClick={()=>dispatch(addtocart({id:item.id, title:item.title}))}>add to cart</button>
                     </div>)
             })}</> }
-            {/* <>{sortedProducts.map((item)=>{
-                return(<p>{item.title} - {item.rating?.count}--{item.price}</p>)
-            })}</> */}
-
-            {/* <>{filteredProducts.map((item)=>{
-                return(<p>{item.title} - {item.rating?.count}</p>)
-            })}</> */}
-            {/* <button onClick={}>search sorted products</button> */}
+            
            
         </div>  
     )
