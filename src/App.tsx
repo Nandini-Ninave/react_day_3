@@ -21,11 +21,10 @@ function App(){
       {/* <Toggle/> */}
      <RouterProvider router={router}></RouterProvider>
     </div>
-    <div>
-      <TextInput label="name" backgroundColor="pink"/>
-      <ButtonComp label="click" backgroundColor="pink"/>
-     {/* <RouterProvider router={router}></RouterProvider> */}
-    </div>
+    // <div>
+      // <TextInput label="name" backgroundColor="pink"/>
+      // <ButtonComp label="click" backgroundColor="pink"/>
+    // </div>
     )
 }
 export default App

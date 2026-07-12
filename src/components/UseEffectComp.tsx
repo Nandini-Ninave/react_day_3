@@ -3,9 +3,10 @@
 import { useEffect, useMemo, useState } from "react";
 import Loadingcomp from "./Loadingcomp";
 import useApi from "./useApi";
-import "./useEffect.css"
+// import "./useEffect.css"
 import { useAppDispatch } from "./day7/hook";
 import { addtocart } from "./day7/addtocartSlice";
+import {Card, Button} from "@mui/material";
 interface products{
     id:number,
     title:string,
@@ -41,22 +42,33 @@ function UseEffectComp(){
                 <option  value={"filtered"}>filtered</option>
             </select>
 
-
-            
-
             {option=="filtered"?<>{sortedProducts.map((item)=>{
                 return(<p>{item.title} - {item.rating?.count}--{item.price}</p>)
             })}</> : 
              <>{data.map((item:any,index)=>{
                 return(<div className="card"key={index}>
-                        <p >Id: {item.id}</p>
+                     <Card 
+              sx={{
+                height:"10%",
+                width:"40%",
+                marginTop:"20px",
+                border:"1px solid black",
+                display:"flex",
+                flexDirection:"column",
+                background:"#bee0e0"
+              }}
+            ><p >Id: {item.id}</p>
                         <p>Title: {item.title}</p>
                         <p>Price: {item.price}</p>
                         <p>Description: {item.description}</p>
                         <p>Category: {item.category}</p>
                         <p>Rate: {item.rating?.rate}</p>
                         <p>Count: {item.rating?.count}</p>
-                        <button onClick={()=>dispatch(addtocart({id:item.id, title:item.title}))}>add to cart</button>
+                    <Button color="primary" variant="contained" fullWidth onClick={()=>dispatch(addtocart({ id:item.id, title:item.title}))}>Add To Cart</Button>
+
+
+            </Card>
+                        
                     </div>)
             })}</> }
             
